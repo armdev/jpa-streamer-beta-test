@@ -1,0 +1,47 @@
+management:     
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+  endpoints:
+    jmx:
+      exposure:
+       include: '*'
+    web:
+     exposure:
+      include: '*'
+      base-path: /actuator
+    cors:
+      allowed-origins: 'true'
+      enabled-by-default: 'false'
+    
+server:
+    port: 2021
+    connection-timeout: 600
+    undertow:
+      buffer-size: 2048
+      io-threads: 300
+      worker-threads: 300
+      no-request-timeout: 1800s
+    
+spring:
+  application:
+    name: jpastreamer
+
+  datasource:
+    url:  jdbc:postgresql://localhost:5432/globus
+    username: postgres
+    password: globus2021 
+    platform: POSTGRESQL
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: false
+    database: postgresql
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQL95Dialect
+    properties: 
+      hibernate:
+       temp:
+        use_jdbc_metadata_defaults: false

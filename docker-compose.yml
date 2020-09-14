@@ -1,0 +1,20 @@
+version: '3'
+services:
+         
+  postgres:
+    image: postgres    
+    build: ./postgres
+    container_name: postgres
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_DB=globus
+      - POSTGRES_PASSWORD=globus2021
+      - POSTGRES_USER=postgres
+    volumes:
+      - ../opt/postgres/logs/:/opt/postgres/logs
+      - ../opt/postgres/data:/var/lib/postgresql/data
+      #- #/postgresnode/postgresql.conf:/etc/postgresql/postgresql.conf:rw   
+    sysctls:
+      - kernel.shmmax=100663296
+
