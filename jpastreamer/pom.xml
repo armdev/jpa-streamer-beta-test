@@ -22,7 +22,11 @@
     </properties>
 
     <dependencies>
-       
+        <dependency>
+            <groupId>com.speedment.jpastreamer.integration.spring</groupId>
+            <artifactId>spring-boot-jpastreamer-autoconfigure</artifactId>
+            <version>0.1.7</version>
+        </dependency>
         <dependency>
             <groupId>com.github.javafaker</groupId>
             <artifactId>javafaker</artifactId>
